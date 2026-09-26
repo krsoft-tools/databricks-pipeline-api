@@ -15,3 +15,27 @@ This repository demonstrates a containerized backend layer designed to bridge Bi
 ---
 
 ## 🏗 Project Architecture
+
+databricks/
+├── app/
+│   ├── main.py          # FastAPI application & endpoints
+│   ├── schemas.py       # Pydantic data validation
+│   └── services.py      # Pandas data processing logic
+├── data/
+│   ├── data.csv          # Raw data export
+│   └── sales_summary.csv # Aggregated Databricks pipeline output
+├── Dockerfile           # Container build file
+├── .dockerignore        # Excluded environments & caches
+└── requirements.txt
+
+---
+
+## 🛠 Local Setup & Running
+
+### Option 1: Native Python Environment
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload
