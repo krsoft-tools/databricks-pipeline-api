@@ -17,7 +17,7 @@ def get_summary(payload: DataSummaryRequest):
     try:
         # Cesta k vzorkovým dátam
         count, metrics = process_pipeline_data(
-            file_path="data/sample_data.csv",
+            file_path="data/sales_summary.csv",
             category=payload.category,
             min_value=payload.min_value
         )
