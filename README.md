@@ -34,8 +34,32 @@ databricks/
 
 ### Option 1: Native Python Environment
 
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload
+1. Create and activate virtual environment:
+   python3 -m venv venv
+   source venv/bin/activate
+
+2. Install dependencies:
+   pip install -r requirements.txt
+
+3. Start server:
+   uvicorn app.main:app --reload
+
+Access Swagger UI at http://127.0.0.1:8000/docs.
+
+---
+
+### Option 2: Docker Container (Production Deployment)
+
+1. Build Docker image:
+   docker build -t databricks-pipeline-api .
+
+2. Run container:
+   docker run -d -p 8000:8000 --name pipeline-api-container databricks-pipeline-api
+
+Access the containerized API documentation at http://127.0.0.1:8000/docs.
+
+---
+
+## 👤 Author
+**Róbert Krečmer**  
+Freelance Backend & Data Developer (Python / FastAPI / AI Workflows)
